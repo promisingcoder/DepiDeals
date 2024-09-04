@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="./Styles/main.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
@@ -13,22 +13,30 @@
     <!-- ProjectHeader -->
     <header class="head">
       <div class="logoBox">
-        <img src="./logo.png" alt="" />
+        <img src="./public/logo.png" alt="" />
       </div>
 
       <!-- Tabs -->
       <nav>
-        <a class="selectedTab">Home</a>
-        <a class="tab">Trendy</a>
+        <a class="selectedTab" href="./index.html">Home</a>
+        <a class="tab" href="./Trendy.html">Trendy</a>
         <a class="tab">Latest</a>
-        <a class="tab">About</a>
+        <a class="tab" href="./About.html">About</a>
       </nav>
 
       <div class="actions">
-        <input
-          class="searchBar"
-          placeholder="What are you looking for?"
-          type="text" />
+        <div style="min-width: 60%; position: relative">
+          <input
+            class="searchBar"
+            placeholder="What are you looking for?"
+            type="text" />
+          <img
+            width="30px"
+            style="position: absolute; right: -10px; top: 10px"
+            src="https://img.icons8.com/?size=100&id=7695&format=png&color=9B9898"
+            alt="" />
+        </div>
+
         <div class="icons">
           <img
             width="45px"
@@ -52,88 +60,40 @@
             <div class="tagRec"></div>
             <h1>Top Offers</h1>
           </div>
+
+          <!-- top Slider -->
+          <div id="topSlider">
+            <button id="left" class="arrow left-arrow">
+              <img
+                src="https://img.icons8.com/?size=100&id=15811&format=png&color=FFFFFF"
+                width="70px" />
+            </button>
+            <button id="right" class="arrow right-arrow">
+              <img
+                style="transform: scaleX(-1)"
+                src="https://img.icons8.com/?size=100&id=15811&format=png&color=FFFFFF"
+                width="70px" />
+            </button>
+
+            <div style="margin-top: 20px" id="bg"></div>
+            <div class="sliderDetails">
+              <h1 id="title"></h1>
+              <div style="margin-top: 10px; margin-bottom: 20px">
+                <span class="price">Category: </span
+                ><span id="category">Monitors</span> |
+                <span class="price">Price: </span><span id="price">550$</span>
+              </div>
+              <div id="overview"></div>
+            </div>
+          </div>
         </div>
 
         <!-- the list for Exclusive Sales -->
-        <div class="right">
+        <div id="rightt">
           <!-- the tag name for this section -->
           <div style="display: flex; align-items: center; gap: 5px">
             <div class="tagRec"></div>
             <h1>Exclusive Sales</h1>
-          </div>
-          <!-- first card -->
-          <div class="card">
-            <img
-              src="./tv.webp"
-              alt="product"
-              style="
-                background-color: red;
-                width: 150px;
-                height: 150px;
-                object-fit: cover;
-                margin-right: 16px;
-              " />
-            <div style="flex: 1">
-              <h3 class="exCardTitle">IPS LCD Gaming Monitor</h3>
-              <p class="price">$550</p>
-              <p style="margin: 4px 0; font-size: 14px; color: #6e6e6e">
-                Category: <span class="price">Monitors</span>
-              </p>
-              <p class="cardOverView">
-                ASUS 23.8" VG249Q3A TUF Gaming Monitor. A full HD gaming monitor
-                featuring an IPS panel for fast 180 Hz gaming.
-              </p>
-            </div>
-          </div>
-
-          <!-- second card -->
-          <div class="card">
-            <img
-              src="./tv.webp"
-              alt="product"
-              style="
-                background-color: red;
-                width: 150px;
-                height: 150px;
-                object-fit: cover;
-                margin-right: 16px;
-              " />
-            <div style="flex: 1">
-              <h3 class="exCardTitle">IPS LCD Gaming Monitor</h3>
-              <p class="price">$550</p>
-              <p style="margin: 4px 0; font-size: 14px; color: #6e6e6e">
-                Category: <span class="price">Monitors</span>
-              </p>
-              <p class="cardOverView">
-                ASUS 23.8" VG249Q3A TUF Gaming Monitor. A full HD gaming monitor
-                featuring an IPS panel for fast 180 Hz gaming.
-              </p>
-            </div>
-          </div>
-
-          <!-- second card -->
-          <div class="card">
-            <img
-              src="./tv.webp"
-              alt="product"
-              style="
-                background-color: red;
-                width: 150px;
-                height: 150px;
-                object-fit: cover;
-                margin-right: 16px;
-              " />
-            <div style="flex: 1">
-              <h3 class="exCardTitle">IPS LCD Gaming Monitor</h3>
-              <p class="price">$550</p>
-              <p style="margin: 4px 0; font-size: 14px; color: #6e6e6e">
-                Category: <span class="price">Monitors</span>
-              </p>
-              <p class="cardOverView">
-                ASUS 23.8" VG249Q3A TUF Gaming Monitor. A full HD gaming monitor
-                featuring an IPS panel for fast 180 Hz gaming.
-              </p>
-            </div>
           </div>
         </div>
       </div>
@@ -150,67 +110,14 @@
             <button class="arrow left-arrow" onclick="moveSlide(-1)">
               <img
                 style="transform: scaleX(-1)"
-                src="https://img.icons8.com/?size=100&id=26138&format=png&color=FFFFFF"
+                src="https://img.icons8.com/?size=100&id=26138&format=png&color=969190"
                 width="70px"
                 alt="" />
             </button>
-            <div class="offersContainer">
-              <!-- Card(1) -->
-              <div class="latestCard">
-                <img
-                  src="./tv.webp"
-                  width="400px"
-                  height="300px"
-                  alt="product" />
-                <p class="latestPrice">
-                  <span>GP11 Shooter USB Gamepad</span>
-                  <span class="price">$550</span>
-                </p>
-                <button class="latestButton">Add To Cart</button>
-              </div>
-              <!-- Card(2) -->
-              <div class="latestCard">
-                <img
-                  src="./tv.webp"
-                  width="400px"
-                  height="300px"
-                  alt="product" />
-                <p class="latestPrice">
-                  <span>GP11 Shooter USB Gamepad</span>
-                  <span class="price">$550</span>
-                </p>
-                <button class="latestButton">Add To Cart</button>
-              </div>
-              <!-- Card(3) -->
-              <div class="latestCard">
-                <img
-                  src="./tv.webp"
-                  width="400px"
-                  height="300px"
-                  alt="product" />
-                <p class="latestPrice">
-                  <span>GP11 Shooter USB Gamepad</span>
-                  <span class="price">$550</span>
-                </p>
-                <button class="latestButton">Add To Cart</button>
-              </div>
-              <!-- Card(4) -->
-              <div class="latestCard">
-                <img
-                  src="./tv.webp"
-                  width="400px"
-                  height="300px"
-                  alt="product" />
-                <p class="latestPrice">
-                  <span>GP11 Shooter USB Gamepad</span>
-                  <span class="price">$550</span>
-                </p>
-                <button class="latestButton">Add To Cart</button>
-              </div>
-            </div>
+            <div id="latest" class="offersContainer"></div>
             <button class="arrow right-arrow" onclick="moveSlide(1)">
               <img
-                src="https://img.icons8.com/?size=100&id=26138&format=png&color=FFFFFF"
+                src="https://img.icons8.com/?size=100&id=26138&format=png&color=969190"
                 width="70px"
                 alt="" />
             </button>
@@ -219,5 +126,6 @@
       </div>
     </main>
   </body>
-  <script src="./slidersScript.js"></script>
+  <script src="./Scripts/slidersScript.js"></script>
+  <script src="./Scripts/Api.js"></script>
 </html>
