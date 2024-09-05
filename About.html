@@ -20,16 +20,21 @@
       <nav>
         <a class="tab" href="./index.html">Home</a>
         <a class="tab" href="./Trendy.html">Trendy</a>
-        <a class="tab">Latest</a>
+        <a class="tab" href="./Latest.html">Latest</a>
         <a class="selectedTab" href="./About.html">About</a>
       </nav>
 
       <div class="actions">
         <div style="min-width: 60%; position: relative">
-          <input
-            class="searchBar"
-            placeholder="What are you looking for?"
-            type="text" />
+          <div class="searching">
+            <input
+              onblur="none(this)"
+              oninput="searching(this)"
+              class="searchBar"
+              placeholder="What are you looking for?"
+              type="text" />
+            <div id="searchData" class="searchData"></div>
+          </div>
           <img
             width="30px"
             style="position: absolute; right: -10px; top: 10px"
@@ -82,5 +87,5 @@
       </p>
     </main>
   </body>
-  <script src="./slidersScript.js"></script>
+  <script src="./Scripts/SearchBar.js"></script>
 </html>

@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./Styles/main.css" />
-    <link rel="stylesheet" href="./Styles/Trendy.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
@@ -20,7 +19,7 @@
       <!-- Tabs -->
       <nav>
         <a class="tab" href="./index.html">Home</a>
-        <a class="selectedTab" href="./Trendy.html">Trendy</a>
+        <a class="tab" href="./Trendy.html">Trendy</a>
         <a class="tab" href="./Latest.html">Latest</a>
         <a class="tab" href="./About.html">About</a>
       </nav>
@@ -60,54 +59,10 @@
       <!-- the tag name for this section -->
       <div style="display: flex; align-items: center; gap: 5px">
         <div class="tagRec"></div>
-        <h1>Top in DepiDeals</h1>
-      </div>
-      <div class="container">
-        <div class="filter">
-          <button
-            onclick="filter(this.value)"
-            value="All"
-            class="filterTabSelected">
-            All
-          </button>
-          <button onclick="filter(this.value)" value="Gaming" class="filterTab">
-            Gaming
-          </button>
-          <button
-            onclick="filter(this.value)"
-            value="Monitors"
-            class="filterTab">
-            Monitors
-          </button>
-          <button
-            onclick="filter(this.value)"
-            value="Tablets"
-            class="filterTab">
-            Tablets
-          </button>
-          <button
-            onclick="filter(this.value)"
-            value="Laptops"
-            class="filterTab">
-            Laptops
-          </button>
-          <button
-            onclick="filter(this.value)"
-            value="Consoles"
-            class="filterTab">
-            Consoles
-          </button>
-          <button
-            onclick="filter(this.value)"
-            value="Keyboards"
-            class="filterTab">
-            Keyboards
-          </button>
-        </div>
-        <div id="trendyProducts"></div>
+        <h1 id="head">Loading ....</h1>
       </div>
     </main>
   </body>
-  <script src="./Scripts/Trendy.js"></script>
+  <script src="./Scripts/products.js"></script>
   <script src="./Scripts/SearchBar.js"></script>
 </html>

@@ -20,16 +20,21 @@
       <nav>
         <a class="selectedTab" href="./index.html">Home</a>
         <a class="tab" href="./Trendy.html">Trendy</a>
-        <a class="tab">Latest</a>
+        <a class="tab" href="./Latest.html">Latest</a>
         <a class="tab" href="./About.html">About</a>
       </nav>
 
       <div class="actions">
         <div style="min-width: 60%; position: relative">
-          <input
-            class="searchBar"
-            placeholder="What are you looking for?"
-            type="text" />
+         <div class="searching">
+            <input
+              onblur="none(this)"
+              oninput="searching(this)"
+              class="searchBar"
+              placeholder="What are you looking for?"
+              type="text" />
+            <div id="searchData" class="searchData"></div>
+          </div>
           <img
             width="30px"
             style="position: absolute; right: -10px; top: 10px"
@@ -58,7 +63,7 @@
           <!-- the tag name for this section -->
           <div style="display: flex; align-items: center; gap: 5px">
             <div class="tagRec"></div>
-            <h1>Top Offers</h1>
+            <a href="./product.html?id=vteve"><h1>Top Offers</h1></a>
           </div>
 
           <!-- top Slider -->
@@ -75,7 +80,9 @@
                 width="70px" />
             </button>
 
-            <div style="margin-top: 20px" id="bg"></div>
+            <a id="topLink" href="#"
+              ><div style="margin-top: 20px" id="bg"></div
+            ></a>
             <div class="sliderDetails">
               <h1 id="title"></h1>
               <div style="margin-top: 10px; margin-bottom: 20px">
@@ -128,4 +135,5 @@
   </body>
   <script src="./Scripts/slidersScript.js"></script>
   <script src="./Scripts/Api.js"></script>
+  <script src="./Scripts/SearchBar.js"></script>
 </html>

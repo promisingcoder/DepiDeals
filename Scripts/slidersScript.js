@@ -23,7 +23,7 @@ reqq.addEventListener("readystatechange", () => {
     data = JSON.parse(data);
     // console.log(data);
 
-    // topoffersSlider
+    // topOffersSlider
     let currentIndex = 0;
     setInterval(() => {
       if (currentIndex === topData.length - 1) {
@@ -60,6 +60,8 @@ reqq.addEventListener("readystatechange", () => {
       category.textContent = topData[currentIndex].Category;
       price.textContent = topData[currentIndex].Price + " $";
       overview.textContent = topData[currentIndex].Overview;
+      const a = topData[currentIndex].id;
+      topLink.href = `/product.html?id=${a}`;
     }
 
     updateSlider();
@@ -67,6 +69,8 @@ reqq.addEventListener("readystatechange", () => {
     // rightExclusiveSalesList
 
     data.slice(4, 7).map((e) => {
+      const link = document.createElement("a");
+      link.href = `./product.html?id=${e.id}`;
       let rightt = document.getElementById("rightt");
       const card1 = document.createElement("div");
       card1.className = "card";
@@ -105,16 +109,19 @@ reqq.addEventListener("readystatechange", () => {
 
       card1.appendChild(img1);
       card1.appendChild(contentDiv);
-
-      rightt.appendChild(card1);
+      link.appendChild(card1);
+      rightt.appendChild(link);
     });
 
     // latestOffersSlider
     data.map((e) => {
+      const latestLink = document.createElement("a");
+      latestLink.href = `./product.html?id=${e.id}`;
+
       const card = document.createElement("div");
       card.className = "latestCard";
       const pic = document.createElement("img");
-      pic.width = 300;
+      pic.width = 350;
       pic.height = 200;
       pic.src = e.Pic;
       const over = document.createElement("p");
@@ -129,8 +136,9 @@ reqq.addEventListener("readystatechange", () => {
       const button = document.createElement("button");
       button.className = "latestButton";
       button.textContent = "Add to Cart";
-      card.appendChild(pic);
-      card.appendChild(over);
+      latestLink.appendChild(pic);
+      latestLink.appendChild(over);
+      card.appendChild(latestLink);
       card.appendChild(button);
       latest.appendChild(card);
     });
