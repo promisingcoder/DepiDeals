@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./Styles/main.css" />
+    <link rel="stylesheet" href="./Styles/Cart.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
@@ -61,7 +62,57 @@
       <!-- the tag name for this section -->
       <div style="display: flex; align-items: center; gap: 5px">
         <div class="tagRec"></div>
-        <h1 id="head">Loading ....</h1>
+        <h1 id="head">Cart</h1>
+      </div>
+      <div class="cart">
+        <div class="table">
+          <div class="main-row">
+            <div class="item"><p>Product</p></div>
+            <div class="item"><p>Price</p></div>
+            <div class="item"><p>Quantity</p></div>
+            <div class="item"><p>Total</p></div>
+          </div>
+          <div class="row">
+            <div class="item">
+              <img
+                src="./public/tv.webp"
+                alt="LCD Monitor"
+                width="50" />
+              <p>LCD Monitor</p>
+            </div>
+            <div class="item"><p>$650</p></div>
+            <div class="item"><p>1</p></div>
+            <div class="item"><p>$650</p></div>
+          </div>
+          <div class="row">
+            <div class="item">
+              <img src="./public/tv.webp" alt="Gamepad" width="50" />
+              <p>HI Gamepad</p>
+            </div>
+            <div class="item"><p>$550</p></div>
+            <div class="item"><p>2</p></div>
+            <div class="item"><p>$1100</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart-total">
+        <div class="wrapper">
+          <h3>Cart Total</h3>
+          <div class="col-item">
+            <span>Subtotal</span>
+            <span>$1750</span>
+          </div>
+          <div class="col-item">
+            <span>Shipping</span>
+            <span>Free</span>
+          </div>
+          <div class="col-item">
+            <span>Total</span>
+            <span>$1750</span>
+          </div>
+          <button class="latestButton">Proceed to checkout</button>
+        </div>
       </div>
     </main>
     <footer>
