@@ -134,8 +134,13 @@ reqq.addEventListener("readystatechange", () => {
       over.appendChild(span1);
       over.appendChild(price);
       const button = document.createElement("button");
+    
       button.className = "latestButton";
       button.textContent = "Add to Cart";
+      button.addEventListener("click" , function(){
+        AddToCart(item)
+      })
+     
       latestLink.appendChild(pic);
       latestLink.appendChild(over);
       card.appendChild(latestLink);
