@@ -1,0 +1,107 @@
+.productContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 60px 50px;
+  gap: 20px;
+}
+
+.gallery {
+  display: flex;
+  gap: 20px;
+  min-width: 58%;
+  min-height: 600px;
+  padding: 5px;
+}
+
+#productThumbs {
+
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.productMainPic {
+  width: 70%;
+}
+
+.productCard {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: rgb(255, 255, 255);
+  min-width: 40%;
+}
+
+.productActions {
+  margin-top: 200px;
+  gap: 10px;
+  min-width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.counter {
+  display: flex;
+  justify-content: center;
+}
+
+#productInput {
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
+}
+
+#upButton {
+  cursor: pointer;
+  font-size: 25px;
+  color: white;
+  min-width: 40px;
+  min-height: 40px;
+  background-color: #414db1;
+  border: none;
+  border-radius: 0px 10px 10px 0px;
+}
+
+#downButton {
+  cursor: pointer;
+  font-size: 25px;
+  color: gray;
+  min-width: 40px;
+  min-height: 40px;
+  background-color: #ffffff;
+  border: gray solid 0.5px;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.buy {
+  border: none;
+  color: white;
+  background-color: #414db1;
+  height: 50px;
+  border-radius: 5px;
+  padding: 0px 40px;
+  font-weight: 600;
+  flex: 1;
+}
+
+#cartButton {
+  background-color: rgb(255, 255, 255);
+  padding: 2px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: solid gray 0.5px;
+}
+
+button:hover {
+  background-color: #c1c1f4;
+}

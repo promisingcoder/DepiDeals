@@ -15,8 +15,47 @@ reqq.addEventListener("readystatechange", () => {
       return e.id == id;
     });
     const head = document.getElementById("head");
+    const title = document.getElementById("productTitle");
+    const details = document.getElementById("productDetails");
+    const price = document.getElementById("productPrice");
+    const overview = document.getElementById("productOverview");
+    const mainPic = document.getElementById("productMainPic");
+    const thumbs = document.getElementById("productThumbs");
     head.textContent = product.Category + " / " + product.Name;
+    title.textContent = product.Name;
+    details.innerHTML = ` <span style="color: gray">(${
+      product.Purchases
+    } Purchases)</span> |
+            <span style="color: #414db1; font-weight: 700">${
+              product.Category
+            }</span> |
+            <span style="color: #414db1; font-weight: 700">${
+              product.Instock === true ? "instock" : "outstock"
+            }</span>`;
+    price.textContent = `$${product.Price}`;
+    overview.textContent = product.Overview;
+    mainPic.src = product.Pic;
+    mainPic.alt = product.Name;
+    product.Gallery.map((e) => {
+      const img = document.createElement("img");
 
+      img.src = e;
+      thumbs.appendChild(img);
+    });
     console.log(product);
   }
 });
+
+function up() {
+  const input = document.getElementById("productInput");
+  if (Number(input.value) < 10) {
+    input.value = Number(input.value) + 1;
+  }
+}
+
+function down() {
+  const input = document.getElementById("productInput");
+  if (Number(input.value) > 0) {
+    input.value = Number(input.value) - 1;
+  }
+}

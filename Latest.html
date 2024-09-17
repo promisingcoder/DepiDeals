@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./Styles/product.css" />
     <link rel="stylesheet" href="./Styles/main.css" />
+    <link rel="stylesheet" href="./Styles/Trendy.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
@@ -21,7 +21,7 @@
       <nav>
         <a class="tab" href="./index.html">Home</a>
         <a class="tab" href="./Trendy.html">Trendy</a>
-        <a class="tab" href="./Latest.html">Latest</a>
+        <a class="selectedTab" href="./Latest.html">Latest</a>
         <a class="tab" href="./About.html">About</a>
       </nav>
 
@@ -58,47 +58,55 @@
     </header>
 
     <!-- the main section -->
-    <main style="padding: 20px; min-height: 500px">
+    <main style="padding: 20px">
       <!-- the tag name for this section -->
       <div style="display: flex; align-items: center; gap: 5px">
         <div class="tagRec"></div>
-        <h1 id="head">Loading ....</h1>
+        <h1>Top in DepiDeals</h1>
       </div>
-      <!-- productContainer -->
-      <div class="productContainer">
-        <div class="gallery">
-          <div id="productThumbs"></div>
-          <div class="productMainPic">
-            <img id="productMainPic" width="100%" height="100%" src="" alt="" />
-          </div>
+      <div class="container">
+        <div class="filter">
+          <button
+            onclick="filter(this.value)"
+            value="All"
+            class="filterTabSelected">
+            All
+          </button>
+          <button onclick="filter(this.value)" value="Gaming" class="filterTab">
+            Gaming
+          </button>
+          <button
+            onclick="filter(this.value)"
+            value="Monitors"
+            class="filterTab">
+            Monitors
+          </button>
+          <button
+            onclick="filter(this.value)"
+            value="Tablets"
+            class="filterTab">
+            Tablets
+          </button>
+          <button
+            onclick="filter(this.value)"
+            value="Laptops"
+            class="filterTab">
+            Laptops
+          </button>
+          <button
+            onclick="filter(this.value)"
+            value="Consoles"
+            class="filterTab">
+            Consoles
+          </button>
+          <button
+            onclick="filter(this.value)"
+            value="Keyboards"
+            class="filterTab">
+            Keyboards
+          </button>
         </div>
-
-        <div class="productCard">
-          <h1 id="productTitle"></h1>
-
-          <div id="productDetails"></div>
-
-          <span style="font-size: 30px" id="productPrice"></span>
-
-          <span style="font-size: 20px" id="productOverview"></span>
-
-          <div class="productActions">
-            <div class="counter">
-              <button id="downButton" onclick="down()">-</button>
-              <input value="0" type="text" id="productInput" />
-              <button id="upButton" onclick="up()">+</button>
-            </div>
-            <button class="buy">Buy Now</button>
-            <button id="cartButton">
-              <img
-                width="40px"
-                height="50px"
-                src="https://img.icons8.com/?size=100&id=0DBkCUANmgoQ&format=png&color=000000"
-                alt="cart" />
-            </button>
-          </div>
-          <img src="./public/inst.png" width="100%" alt="" />
-        </div>
+        <div id="trendyProducts"></div>
       </div>
     </main>
     <footer>
@@ -123,6 +131,7 @@
       </div>
     </footer>
   </body>
-  <script src="./Scripts/products.js"></script>
+  <script src="./Scripts/cart.js"></script>
+  <script src="./Scripts/latest.js"></script>
   <script src="./Scripts/SearchBar.js"></script>
 </html>

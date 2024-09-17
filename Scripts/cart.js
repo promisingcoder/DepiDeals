@@ -1,79 +1,90 @@
-products   =  []
-quantity = {
+products = [];
+quantity = {};
 
+function append(arr) {
+  row = document.createElement("div");
+  row.className = "row";
+  table = document.getElementsByClassName("table")[0];
+  table.appendChild(row);
+  arr.forEach((element) => {
+    item = document.createElement("div");
+    item.className = "item";
+    row.appendChild(item);
+    item.innerHTML = element;
+  });
+
+  table.appendChild(row);
 }
+products = JSON.parse(localStorage["products"]);
+quantity = JSON.parse(localStorage["quantity"]);
+products.forEach((product) => {
+  append([
+    `<img src="${product.Pic}" style="width:100px;height:90px"/>
+    <p style="font-size:15px">${product.Name}</p> `,
+    `<p>$${product.Price}</p>`,
+    `<p class="quantity">${quantity[product.Name]}</p> `,
+    `<p class="total">$${quantity[product.Name] * product.Price}</p> `,
+    `<button class='dele' id='${product.Name}'>Delete</button>`,
+  ]);
+});
+
 function AddToCart(product) {
-    let products, quantity;
+  let products, quantity;
 
-    try {
-        products = JSON.parse(localStorage.getItem("products") || "[]");
-        quantity = JSON.parse(localStorage.getItem("quantity") || "{}");
-    } catch (e) {
-        products = [];
-        quantity = {};
-    }
+  try {
+    products = JSON.parse(localStorage.getItem("products") || "[]");
+    quantity = JSON.parse(localStorage.getItem("quantity") || "{}");
+  } catch (e) {
+    products = [];
+    quantity = {};
+  }
 
-    if (quantity[product.Name] === undefined) {
-        quantity[product.Name] = 0;
-    }
+  if (quantity[product.Name] === undefined) {
+    quantity[product.Name] = 0;
+  }
 
-    quantity[product.Name] += 1;
+  quantity[product.Name] += 1;
 
-    if (!products.some(p => p.Name === product.Name)) {
-        products.push(product);
-    }
+  if (!products.some((p) => p.Name === product.Name)) {
+    products.push(product);
+  }
 
-    updateSessionStorage(products, quantity);
+  updateSessionStorage(products, quantity);
 }
 
 function updateSessionStorage(products, quantity) {
-    localStorage.setItem("products", JSON.stringify(products));
-    localStorage.setItem("quantity", JSON.stringify(quantity));
-    console.log(products)
-    console.log(quantity)
+  localStorage.setItem("products", JSON.stringify(products));
+  localStorage.setItem("quantity", JSON.stringify(quantity));
+  console.log(products);
+  console.log(quantity);
 }
-function DeleteFromCart(parent,id){
-    products =  JSON.parse(localStorage["products"])
-    quantity = JSON.parse(localStorage["quantity"])
-    
-    for(let product of products){
-        console.log(id)
-        console.log(product.Name)
-        if (product.Name == id){
-            if (quantity[id] > 1)
-            {   quantity[id]  -= 1
-                break;
-                
-                
+function DeleteFromCart(parent, id) {
+  products = JSON.parse(localStorage["products"]);
+  quantity = JSON.parse(localStorage["quantity"]);
 
-
-            }
-            else{
-                delete  quantity[id]  
-                products = products.filter(function(item) {
-                    return item !== product
-                })
-                parent.remove();  // Remove the row from the DOM
-                
-                
-                
-
-            }
-
-        
-            
-        }
+  for (let product of products) {
+    console.log(id);
+    console.log(product.Name);
+    if (product.Name == id) {
+      if (quantity[id] > 1) {
+        quantity[id] -= 1;
+        break;
+      } else {
+        delete quantity[id];
+        products = products.filter(function (item) {
+          return item !== product;
+        });
+        parent.remove(); // Remove the row from the DOM
+      }
     }
-    updateSessionStorage(products,quantity)
-    }
-   
-function ReturnTotal(products){
-    let  sum;
-    products.forEach(product => {
-        sum += product.price * quantity[product.Name]
-    });
-    return(sum)
+  }
+  updateSessionStorage(products, quantity);
 }
 
-
-
+function ReturnTotal(products) {
+  let sum;
+  products.forEach((product) => {
+    sum += product.price * quantity[product.Name];
+  });
+  return sum;
+}
