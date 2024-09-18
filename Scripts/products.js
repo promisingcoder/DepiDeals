@@ -42,6 +42,11 @@ reqq.addEventListener("readystatechange", () => {
       img.src = e;
       thumbs.appendChild(img);
     });
+
+    cartButton  = document.querySelector("#cartButton")
+  cartButton.addEventListener("click" , () => 
+  AddToCart(product,parseInt(document.querySelector("#productInput").value))
+)
     console.log(product);
   }
 });
@@ -59,3 +64,4 @@ function down() {
     input.value = Number(input.value) - 1;
   }
 }
+
