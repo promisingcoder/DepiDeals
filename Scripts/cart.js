@@ -1,68 +1,57 @@
-function update_total(){
-    let sum = 0;
-    for(let item of document.querySelectorAll(".total")){
-      sum += parseInt(item.innerText.replace("$",""))
-    }
-    
-    if (document.querySelectorAll(".total").length == 0) {
-      console.log("got inside")
-      document.querySelector("#total-of-items").innerHTML = 0;
-      return;
-      
-    }
-   
-  
-    document.querySelector("#total-of-items").innerText = sum
-               }
-function append(arr){
-  row = document.createElement("div")
-  
-  row.className = "row"
-  table =  document.getElementsByClassName("table")[0]
-  table.appendChild(row)
-  arr.forEach(element => {
-    item = document.createElement("div")
-    item.className = "item"
-    row.appendChild(item)
-    item.innerHTML = element
-    
-  
-  });
-  
-  table.appendChild(row)
+function update_total() {
+  let sum = 0;
+  for (let item of document.querySelectorAll(".total")) {
+    sum += parseInt(item.innerText.replace("$", ""));
+  }
 
-  
+  if (document.querySelectorAll(".total").length == 0) {
+    console.log("got inside");
+    document.querySelector("#total-of-items").innerHTML = 0;
+    return;
+  }
+
+  document.querySelector("#total-of-items").innerText = sum;
+}
+function append(arr) {
+  row = document.createElement("div");
+
+  row.className = "row";
+  table = document.getElementsByClassName("table")[0];
+  table.appendChild(row);
+  arr.forEach((element) => {
+    item = document.createElement("div");
+    item.className = "item";
+    row.appendChild(item);
+    item.innerHTML = element;
+  });
+
+  table.appendChild(row);
 }
 
 function update(products, quantity, id) {
-
-  
-        
-    
   let button = document.getElementById(`${id}`);
-  row = button.parentElement.parentElement
-  quantityElement = row.querySelector(".quantity")
-  total  = row.querySelector(".total")
-  
+  row = button.parentElement.parentElement;
+  quantityElement = row.querySelector(".quantity");
+  total = row.querySelector(".total");
+
   if (quantityElement) {
     let currentQuantity = parseInt(quantityElement.innerText);
-    Total = parseInt(total.innerText.replace("$",""))
+    Total = parseInt(total.innerText.replace("$", ""));
     console.log("Current quantity before update:", currentQuantity); // Debugging output
     newQuantity = currentQuantity - 1;
     // Ensure currentQuantity is a valid number
     if (!isNaN(currentQuantity) && currentQuantity > 0) {
       quantityElement.innerText = newQuantity;
-      console.log(Total)
-      console.log(newQuantity)
-      console.log(currentQuantity)
-      console.log(`${(newQuantity/currentQuantity)*Total}`)
-      total.innerText = (newQuantity/currentQuantity)*Total
+      console.log(Total);
+      console.log(newQuantity);
+      console.log(currentQuantity);
+      console.log(`${(newQuantity / currentQuantity) * Total}`);
+      total.innerText = (newQuantity / currentQuantity) * Total;
       console.log("Updated quantity:", quantityElement.innerText); // Debugging output
     } else {
-
       console.warn("Invalid or zero quantity; no update performed."); // Debugging output
     }
-  } 
+  }
   return;
 }
 
@@ -88,32 +77,29 @@ products.forEach((product) => {
     <p style="font-size:15px">${product.Name}</p> `,
     `<p>$${product.Price}</p>`,
     `<p class="quantity">${quantity[product.Name]}</p> `,
-    `<p class="total">$${parseInt(quantity[product.Name] * product.Price)}</p> `,
+    `<p class="total">$${parseInt(
+      quantity[product.Name] * product.Price
+    )}</p> `,
     `<button class='dele' id='${product.Name}'>Delete</button>`,
   ]);
 });
-update_total()
+update_total();
 
-list  = document.getElementsByClassName("dele")
-for(let element of list){
-  element.addEventListener("click" , function(){
-  check(true) 
-  update(JSON.parse(localStorage["products"]),JSON.parse(localStorage["quantity"]),element.id)
-  DeleteFromCart(element.parentElement.parentElement,element.id)
-  
-  
-  
-  
-
-})
-
-
-
+list = document.getElementsByClassName("dele");
+for (let element of list) {
+  element.addEventListener("click", function () {
+    check(true);
+    update(
+      JSON.parse(localStorage["products"]),
+      JSON.parse(localStorage["quantity"]),
+      element.id
+    );
+    DeleteFromCart(element.parentElement.parentElement, element.id);
+  });
 }
-function AddToCart(product,quantity_number) {
-  
-  if(!(quantity_number)){
-    quantity_number = 1
+function AddToCart(product, quantity_number) {
+  if (!quantity_number) {
+    quantity_number = 1;
   }
   let products, quantity;
 
@@ -172,38 +158,36 @@ function ReturnTotal(products) {
   products.forEach((product) => {
     sum += product.price * quantity[product.Name];
   });
+
   return sum;
 }
 let check = (in_event) => {
-  total_items =  document.querySelectorAll(".total")
-  for (let item of total_items){
-      
-  const targetNode = item;
+  total_items = document.querySelectorAll(".total");
+  for (let item of total_items) {
+    const targetNode = item;
 
-  // Options for the observer (which mutations to observe)
-  const config = { attributes: true, childList: true, subtree: true };
+    // Options for the observer (which mutations to observe)
+    const config = { attributes: true, childList: true, subtree: true };
 
-  // Callback function to execute when mutations are observed
-  const callback = (mutationList, observer) => {
-    for (const mutation of mutationList) {
-      if (mutation.type === "childList") {
-        console.log("A child node has been added or removed.");
-        update_total(true)
-      } else if (mutation.type === "attributes") {
-        console.log(`The ${mutation.attributeName} attribute was modified.`);
+    // Callback function to execute when mutations are observed
+    const callback = (mutationList, observer) => {
+      for (const mutation of mutationList) {
+        if (mutation.type === "childList") {
+          console.log("A child node has been added or removed.");
+          update_total(true);
+        } else if (mutation.type === "attributes") {
+          console.log(`The ${mutation.attributeName} attribute was modified.`);
+        }
       }
-    }
-  };
+    };
 
-  // Create an observer instance linked to the callback function
-  const observer = new MutationObserver(callback);
+    // Create an observer instance linked to the callback function
+    const observer = new MutationObserver(callback);
 
-  // Start observing the target node for configured mutations
-  observer.observe(targetNode, config);
+    // Start observing the target node for configured mutations
+    observer.observe(targetNode, config);
 
-  // Later, you can stop observing
-  // observer.disconnect();
-
+    // Later, you can stop observing
+    // observer.disconnect();
   }
-}
-     
+};

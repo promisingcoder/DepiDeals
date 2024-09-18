@@ -43,10 +43,22 @@ reqq.addEventListener("readystatechange", () => {
       thumbs.appendChild(img);
     });
 
-    cartButton  = document.querySelector("#cartButton")
-  cartButton.addEventListener("click" , () => 
-  AddToCart(product,parseInt(document.querySelector("#productInput").value))
-)
+    cartButton = document.querySelector("#cartButton");
+    cartButton.addEventListener("click", () => {
+      AddToCart(
+        product,
+        parseInt(document.querySelector("#productInput").value)
+      );
+      
+      // handling the dialog ya youssef :)
+      if (document.querySelector("#productInput").value > 0) {
+        document.getElementById("dialog").style.display = "block";
+        setTimeout(() => {
+          document.getElementById("dialog").style.display = "none";
+        }, 1000);
+        document.querySelector("#productInput").value = 0;
+      }
+    });
     console.log(product);
   }
 });
@@ -64,4 +76,3 @@ function down() {
     input.value = Number(input.value) - 1;
   }
 }
-

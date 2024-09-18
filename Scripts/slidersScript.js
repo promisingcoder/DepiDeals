@@ -134,13 +134,21 @@ reqq.addEventListener("readystatechange", () => {
       over.appendChild(span1);
       over.appendChild(price);
       const button = document.createElement("button");
-    
+
       button.className = "latestButton";
       button.textContent = "Add to Cart";
-      button.addEventListener("click" , function(){
-        AddToCart(item)
-      })
-     
+
+      button.addEventListener("click", function () {
+        AddToCart(e);
+ 
+
+        // handling the dialog ya youssef :)
+        document.getElementById("dialog").style.display = "block";
+        setTimeout(() => {
+          document.getElementById("dialog").style.display = "none";
+        }, 1000);
+      });
+
       latestLink.appendChild(pic);
       latestLink.appendChild(over);
       card.appendChild(latestLink);

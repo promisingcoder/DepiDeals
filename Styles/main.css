@@ -281,3 +281,29 @@ footer {
   font-size: 14px;
   padding-top: 15px;
 }
+
+
+.dialog {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 1000;
+  width: 90%;
+  max-width: 400px;
+}
+.dialog-header {
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.dialog-message {
+  margin-bottom: 20px;
+}
+
